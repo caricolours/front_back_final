@@ -3,9 +3,11 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from 'sweetalert2'
 import { ENDPOINT } from "../config/config";
+import { UserContext } from "./UserContext";
 export const ServiciosContext = createContext();
 
 const ServicioProvider = ({ children }) => {
+  const { user } = useContext(UserContext);
   const navigate = useNavigate();
   const defaultPublicacion = {
     usuario_id: 0,
@@ -46,7 +48,7 @@ const ServicioProvider = ({ children }) => {
           title: "Publicación creada con éxito",
           icon: "success"
         }).then(() => {
-          navigate("/profesional");
+          navigate(`/profesional/${user.id}`);
         });
       }).catch((err) => {
         return console.log(err);
