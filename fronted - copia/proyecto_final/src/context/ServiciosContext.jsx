@@ -7,7 +7,7 @@ import { UserContext } from "./UserContext";
 export const ServiciosContext = createContext();
 
 const ServicioProvider = ({ children }) => {
-  const { user } = useContext(UserContext);
+  
   const navigate = useNavigate();
   const defaultPublicacion = {
     usuario_id: 0,
@@ -35,7 +35,7 @@ const ServicioProvider = ({ children }) => {
     console.log(publicacion);
   }
 
-  const createPublicacion = (event) => {
+  const createPublicacion = (event, id_usuario) => {
     event.preventDefault();
     axios.post(ENDPOINT.publicaciones, publicacion)
       .then((res) => {
@@ -48,7 +48,8 @@ const ServicioProvider = ({ children }) => {
           title: "Publicación creada con éxito",
           icon: "success"
         }).then(() => {
-          navigate(`/profesional/${user.id}`);
+          
+          navigate(`/profesional/${id_usuario}`);
         });
       }).catch((err) => {
         return console.log(err);
