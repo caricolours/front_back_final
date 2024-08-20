@@ -5,21 +5,21 @@ CREATE DATABASE adiestramientos;
 CREATE TABLE usuarios (
   id              SERIAL        NOT NULL,
   nombre          VARCHAR(60)   NOT NULL,
-  especialidad    VARCHAR(20),
+  especialidad    VARCHAR(30),
   img             TEXT,
   celular         VARCHAR(20)   NOT NULL,
-  direccion       VARCHAR(20)   NOT NULL,
+  direccion       VARCHAR(50)   NOT NULL,
   email           VARCHAR(50)   NOT NULL  UNIQUE,
   password        VARCHAR(60)   NOT NULL,
-  PRIMARY KEY (id)
-);
+  PRIMARY KEY (id));
 
 CREATE TABLE publicaciones (
   id              SERIAL        NOT NULL,
   usuario_id      INTEGER       NOT NULL,
-  titulo          VARCHAR(20)   NOT NULL,
+  titulo          VARCHAR(40)   NOT NULL,
   descripcion     VARCHAR(500)  NOT NULL,
-  img             VARCHAR(200)  NOT NULL,
+  especialidad,   TEXT,
+  img             TEXT,
   precio          INTEGER       NOT NULL,
   status          BOOLEAN       NOT NULL DEFAULT FALSE,
   PRIMARY KEY (id),
