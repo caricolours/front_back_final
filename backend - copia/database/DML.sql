@@ -18,7 +18,7 @@ CREATE TABLE publicaciones (
   usuario_id      INTEGER       NOT NULL,
   titulo          VARCHAR(40)   NOT NULL,
   descripcion     VARCHAR(500)  NOT NULL,
-  especialidad,   TEXT,
+  especialidad   TEXT,
   img             TEXT,
   precio          INTEGER       NOT NULL,
   status          BOOLEAN       NOT NULL DEFAULT FALSE,
