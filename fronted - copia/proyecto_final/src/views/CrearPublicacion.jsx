@@ -18,7 +18,7 @@ const CrearPublicacion = () => {
                 <div className="cajaperfil">
                     <h6 className='text-white m-2'>Datos</h6>
                 </div>
-                <form onSubmit={createPublicacion} className="my-4 cajadatos">
+                <form onSubmit={(event) => {createPublicacion(event, user.id)}} className="my-4 cajadatos">
                 <div className="d-flex p-2">
                         <label className="formaregistro p-2" htmlFor="titulo">Título:</label>
                         <input id='titulo' name='titulo' className="imputsperfil mx-1" type="text" placeholder="Título" onChange={(event) => { handlePublicacion(event, user.id, user.especialidad) }} />
