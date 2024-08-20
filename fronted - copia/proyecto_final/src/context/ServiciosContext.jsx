@@ -1,11 +1,11 @@
-import { createContext, useContext, useState } from "react"
+import { createContext, useContext, useState, useNavigate } from "react"
 import axios from "axios";
 import Swal from 'sweetalert2'
 import { ENDPOINT } from "../config/config";
 export const ServiciosContext = createContext();
 
 const ServicioProvider = ({ children }) => {
-
+  const navigate = useNavigate();
   const defaultPublicacion = {
     usuario_id: 0,
     titulo: '',
